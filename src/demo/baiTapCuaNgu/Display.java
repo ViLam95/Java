@@ -15,8 +15,8 @@ public class Display {
             System.out.println("Menu");
             System.out.println("1.Hiển thị nhân viên fullTime: ");
             System.out.println("2.Hiển thị nhân viên partTime: ");
-            System.out.println("3.Thêm một nhân viên mới fullTime: ");
-            System.out.println("4.Thêm một nhân viên mới partTime: ");
+            System.out.println("3.Thêm một nhân viên mới fullTime hoặc parttime: ");
+            System.out.println("4.Sửa một bạn nhân viên mà bạn cần sửa: ");
             System.out.println("5.Xoá một nhân viên ");
             System.out.println("0.Thoát");
             System.out.println("Nhập lựa chọn của bạn: ");
@@ -37,12 +37,13 @@ public class Display {
                     }
                     break;
                 case 3:
-                    delete(employees);
+                    addStaff(employees);
                     break;
                 case 4:
-                    addStaff(employees);
-                case 5:
                     updateStaff(employees);
+                    break;
+                case 5:
+                    delete(employees);
                     break;
                 case 0:
                     System.exit(0);
@@ -69,17 +70,19 @@ public class Display {
         Employee[] staff2 = new Employee[employees.length + 1];
         System.arraycopy(employees, 0, staff2, 0, employees.length);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhập 1 để add FullTime: ");
-        System.out.println("Nhập 2 để add Partime: ");
+        System.out.println("Add FullTime: ");
+        System.out.println("Add Partime: ");
         int input1 = Integer.parseInt(scanner.nextLine());
         switch (input1){
             case 1:
                 FullTime fullTime = new FullTime(5,"Duong",22,2000000,3);
                 staff2[staff2.length-1] = fullTime;
+                System.out.println(fullTime);
                 break;
             case 2:
                 PartTime partTime = new PartTime(5,"Ngu",21,20000,30);
                 staff2[staff2.length-1] = partTime;
+                System.out.println(partTime);
                 break;
         }
     }
@@ -95,16 +98,22 @@ public class Display {
                 System.out.println("Age: ");
                 int age = scanner.nextInt();
                 employee.setAge(age);
+                double salary = scanner.nextDouble();
+                employee.setSalary(salary);
+                System.out.println("Salary: ");
                 if (employee instanceof FullTime) {
-                    System.out.println("Kinh nghiệm ");
+                    System.out.println("Experence: ");
                     int time = scanner.nextInt();
                     ((FullTime) employee).setYearOfExp(time);
                 } else {
-                    System.out.println("Giờ làm");
+                    System.out.println("Work Time: ");
                     int time = scanner.nextInt();
                     ((PartTime) employee).setWorkTime(time);
                 }
             }
+        }
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i]);
         }
     }
 }
