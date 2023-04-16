@@ -6,11 +6,11 @@ public class Display {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        FullTime f1 = new FullTime(1,"Hieu",28,2000000,5);
-        FullTime f2 = new FullTime(2,"Lam",20,2000000,5);
-        PartTime p1 = new PartTime(3,"Minh",32,20000,32);
-        PartTime p2 = new PartTime(4,"Dung",19,20000,28);
-        Employee[] employees = {f1,f2,p1,p2};
+        FullTime f1 = new FullTime(1, "Hieu", 28, 2000000, 5);
+        FullTime f2 = new FullTime(2, "Lam", 20, 2000000, 5);
+        PartTime p1 = new PartTime(3, "Minh", 32, 20000, 32);
+        PartTime p2 = new PartTime(4, "Dung", 19, 20000, 28);
+        Employee[] employees = {f1, f2, p1, p2};
         do {
             System.out.println("Menu");
             System.out.println("1.Hiển thị nhân viên fullTime: ");
@@ -21,10 +21,10 @@ public class Display {
             System.out.println("0.Thoát");
             System.out.println("Nhập lựa chọn của bạn: ");
             int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
                     for (int i = 0; i < employees.length; i++) {
-                        if(employees[i] instanceof FullTime){
+                        if (employees[i] instanceof FullTime) {
                             System.out.println(employees[i]);
                         }
                     }
@@ -37,7 +37,7 @@ public class Display {
                     }
                     break;
                 case 3:
-                    addStaff(employees);
+                    employees = addStaff(employees);
                     break;
                 case 4:
                     updateStaff(employees);
@@ -48,9 +48,10 @@ public class Display {
                 case 0:
                     System.exit(0);
             }
-        }while (true);
+        } while (true);
     }
-    public static void delete(Employee[]employees){
+
+    public static void delete(Employee[] employees) {
         Scanner scanner = new Scanner(System.in);
         Employee[] staff = new Employee[employees.length - 1]; //Tao ra mot mang moi
         System.out.println("Xoá thằng nhân viên mà bạn ghét :");
@@ -62,31 +63,34 @@ public class Display {
                 j++;
             }
         }
-        for (int k = 0; k < j; k++){
+        for (int k = 0; k < j; k++) {
             System.out.println(employees[k]);
         }
     }
-    public static void addStaff(Employee[]employees){
+
+    public static Employee[] addStaff(Employee[] employees) {
         Employee[] staff2 = new Employee[employees.length + 1];
         System.arraycopy(employees, 0, staff2, 0, employees.length);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Add FullTime: ");
         System.out.println("Add Partime: ");
         int input1 = Integer.parseInt(scanner.nextLine());
-        switch (input1){
+        switch (input1) {
             case 1:
-                FullTime fullTime = new FullTime(5,"Duong",22,2000000,3);
-                staff2[staff2.length-1] = fullTime;
+                FullTime fullTime = new FullTime(5, "Duong", 22, 2000000, 3);
+                staff2[staff2.length - 1] = fullTime;
                 System.out.println(fullTime);
                 break;
             case 2:
-                PartTime partTime = new PartTime(5,"Ngu",21,20000,30);
-                staff2[staff2.length-1] = partTime;
+                PartTime partTime = new PartTime(5, "Ngu", 21, 20000, 30);
+                staff2[staff2.length - 1] = partTime;
                 System.out.println(partTime);
                 break;
         }
+        return staff2;
     }
-    public static void updateStaff(Employee[]employees){
+
+    public static void updateStaff( Employee[] employees) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập id cần sửa: ");
         int update = Integer.parseInt(scanner.nextLine());
