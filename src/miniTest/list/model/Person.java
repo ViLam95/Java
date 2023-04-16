@@ -1,4 +1,4 @@
-package miniTest.list;
+package miniTest.list.model;
 
 public class Person {
     private int id;

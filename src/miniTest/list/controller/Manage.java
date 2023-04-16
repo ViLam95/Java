@@ -1,6 +1,8 @@
-package miniTest.list;
+package miniTest.list.controller;
 
-    interface Manage {
+import miniTest.list.model.Person;
+
+interface Manage {
     void displayAll();
     void addPerson(Person person);
     int indexOfPerson (int id);

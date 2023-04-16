@@ -1,4 +1,7 @@
-package miniTest.list;
+package miniTest.list.view;
+
+import miniTest.list.model.Person;
+import miniTest.list.controller.PersonManage;
 
 import java.util.Scanner;
 

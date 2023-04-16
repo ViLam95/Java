@@ -1,4 +1,7 @@
-package miniTest.list;
+package miniTest.list.controller;
+
+import miniTest.list.model.Person;
+import miniTest.list.model.Student;
 
 import java.util.*;
 

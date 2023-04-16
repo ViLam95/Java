@@ -1,6 +1,6 @@
-package miniTest.list;
+package miniTest.list.model;
 
-import java.util.List;
+import miniTest.list.model.Person;
 
 public class Student extends Person {
     private double averagePoint;
