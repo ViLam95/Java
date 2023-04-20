@@ -9,5 +9,5 @@ interface Manage {
     int removePerson(int id);
     void updatePerson();
     void sortListByAverage();
-    public double calculateTotalScore();
+    double calculateTotalScore();
 }
