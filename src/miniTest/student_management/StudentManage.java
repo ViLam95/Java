@@ -22,7 +22,7 @@ public class StudentManage implements Manage<Student>{
 
         ClassRoom classroom = new ClassRoom();
         int choice;
-        System.out.println("Chọn lớp");
+        System.out.println("Choose class:");
         choice = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < classrooms.length; i++) {
             if (classrooms[i].getId() == choice) {

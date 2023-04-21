@@ -37,5 +37,25 @@ public class ClassRoomManage implements ClassManage<ClassRoom>  {
             }
         return null;
     }
+    @Override
+    public ClassRoom editClassroom(){
+        System.out.println("Enter classroom ID to edit:");
+        int id = scanner.nextInt();
+        for (ClassRoom classroom: classRooms) {
+            if (classroom.getId() == id){
+                System.out.println("Enter new class:");
+                String name = scanner.nextLine();
+                classroom.setName(name);
+            }
+        }
+        return null;
+    }
+    @Override
+    public ClassRoom removeClassroom(){
+        System.out.println("Enter the id to delete:");
+        int id = scanner.nextInt();
+
+        return null;
+    }
 
 }

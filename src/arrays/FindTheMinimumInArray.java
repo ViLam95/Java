@@ -7,7 +7,7 @@ public class FindTheMinimumInArray {
         System.out.println("The smallest element in the array is: " +arr[index] + " at position " + index);
     }
 
-    private static double minValue(int[] array) {
+    public static double minValue(int[] array) {
         int index = 0;
         for (int j =0; j < array.length; j++ ){
             if (array[j] < array[index]) {
